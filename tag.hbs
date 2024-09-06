@@ -1,0 +1,36 @@
+{{!< default}}
+{{!-- The tag above means - insert everything in this file into the {body} of the default.hbs template --}}
+
+{{!-- The main content area on the tag page --}}
+<main id="main" class="content outer">
+    <div class="inner-wide">
+
+        {{!-- Everything inside the #tag tags pulls data from the tag --}}
+        {{#tag}}
+
+        <header class="archive-header {{#if feature_image}}has-image bg-dark bg-full{{else}}no-image{{/if}}">
+            {{#if feature_image}}
+                <img
+                    class="archive-header-image bg-full-image bg-fade-in"
+                    srcset="{{img_url feature_image size="xs"}} 300w, {{img_url feature_image size="s" }} 600w, {{img_url feature_image size="m" }} 800w, {{img_url feature_image size="l" }} 1200w, {{img_url feature_image size="xl" }} 1600w, {{img_url feature_image size="xxl" }} 2000w"
+                    sizes="(min-width: 1600px) 1600px, 100vw"
+                    src="{{img_url feature_image size="xl"}}"
+                    alt=""
+                />
+            {{/if}}
+            <div class="archive-header-content inner">
+                <div class="archive-meta">{{plural ../pagination.total empty=(t "No posts tagged") singular=(t "% post tagged") plural=(t "% posts tagged")}}</div>
+                <h1 class="archive-title">{{name}}</h1>
+                {{#if description}}
+                    <p class="archive-description">{{description}}</p>
+                {{/if}}
+            </div>
+        </header>
+
+        {{/tag}}
+
+        {{!-- Includes the post loop - partials/loop.hbs --}}
+        {{> "loop"}}
+
+    </div>
+</main>

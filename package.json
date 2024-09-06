@@ -1,0 +1,118 @@
+{
+  "name": "curious",
+  "description": "A perfect Ghost theme for an online magazine, journal or personal blog.",
+  "demo": "https://curious.justgoodthemes.com/",
+  "version": "3.2.0",
+  "engines": {
+    "ghost": ">=5.0.0"
+  },
+  "screenshots": {
+    "desktop": "assets/screenshot-desktop.jpg",
+    "mobile": "assets/screenshot-mobile.jpg"
+  },
+  "author": {
+    "name": "Just Good Themes",
+    "email": "hello@justgoodthemes.com",
+    "url": "https://justgoodthemes.com"
+  },
+  "keywords": [
+    "ghost",
+    "theme",
+    "ghost-theme"
+  ],
+  "config": {
+    "posts_per_page": 6,
+    "card_assets": {
+      "exclude": [
+        "blockquote",
+        "bookmark",
+        "gallery"
+      ]
+    },
+    "image_sizes": {
+      "xxs": {
+        "width": 150
+      },
+      "xs": {
+        "width": 300
+      },
+      "s": {
+        "width": 600
+      },
+      "m": {
+        "width": 800
+      },
+      "l": {
+        "width": 1200
+      },
+      "xl": {
+        "width": 1600
+      },
+      "xxl": {
+        "width": 2000
+      }
+    },
+    "custom": {
+      "color_scheme": {
+        "type": "select",
+        "options": [
+            "Light",
+            "Dark"
+        ],
+        "default": "Light"
+      },
+      "enable_authors_in_footer": {
+        "type": "boolean",
+        "default": true
+      },
+      "authors_title": {
+        "type": "text",
+        "default": "Contributors"
+      },
+      "enable_popular_posts_in_footer": {
+        "type": "boolean",
+        "default": true
+      },
+      "popular_posts_title": {
+        "type": "text",
+        "default": "Popular"
+      },
+      "enable_tags_in_footer": {
+        "type": "boolean",
+        "default": true
+      },
+      "tags_title": {
+        "type": "text",
+        "default": "Explore"
+      },
+      "enable_about_in_footer": {
+        "type": "boolean",
+        "default": true
+      },
+      "about_title": {
+        "type": "text",
+        "default": "About Curious"
+      },
+      "about_text": {
+        "type": "text",
+        "default": "Curious is a well-structured, content-focused and easy to set up Ghost theme with a bold design. Perfect for an online magazine, journal or even a personal blog. Explore it yourself."
+      },
+      "section_above_post_feed": {
+        "type": "select",
+        "options": ["None", "Featured posts carousel", "Title & description"],
+        "default": "Title & description",
+        "group": "homepage"
+      },
+      "enable_disqus": {
+        "type": "boolean",
+        "default": false,
+        "group": "post"
+      },
+      "disqus_shortname": {
+        "type": "text",
+        "default": "",
+        "group": "post"
+      }
+    }
+  }
+}

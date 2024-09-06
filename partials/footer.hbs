@@ -1,0 +1,36 @@
+<footer class="footer outer">
+    <div class="inner-wide">
+        {{!-- Includes the theme footer sections - partials/footer-grid.hbs --}}
+        {{#if @custom.enable_popular_posts_in_footer}}
+            {{> footer-grid}}
+        {{else}}
+            {{#if @custom.enable_tags_in_footer}}
+                {{> footer-grid}}
+            {{else}}
+                {{#if @custom.enable_authors_in_footer}}
+                    {{> footer-grid}}
+                {{else}}
+                    {{#if @custom.enable_about_in_footer}}
+                        {{> footer-grid}}
+                    {{/if}}
+                {{/if}}
+            {{/if}}
+        {{/if}}
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                {{!-- If enabled, includes the secondary navigation menu - partials/navigation.hbs --}}
+                {{#if @site.secondary_navigation}}
+                    <nav class="footer-nav">
+                        {{navigation type="secondary"}}
+                    </nav>
+                {{/if}}
+                <div class="footer-info">
+                    <a href="{{@site.url}}">{{@site.title}}</a> &copy; {{date format="YYYY"}}
+                    {{{t "Curious theme by {jgt_link}. Powered by {ghost_link}." jgt_link="<a target=\"_blank\" href=\"https://justgoodthemes.com/\" rel=\"noopener\">Just Good Themes</a>" ghost_link="<a target=\"_blank\" href=\"https://ghost.org\" rel=\"noopener\">Ghost</a>"}}}
+                </div>
+            </div>
+            {{!-- Includes the social links - partials/social-links.hbs --}}
+            {{> social-links}}
+        </div>
+    </div>
+</footer>

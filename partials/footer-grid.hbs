@@ -1,0 +1,21 @@
+<div class="footer-grid">
+    {{!-- Includes authors section if enabled in settings - partials/footer-section-about.hbs --}}
+    {{#if @custom.enable_authors_in_footer}}
+        {{> footer-section-authors}}
+    {{/if}}
+
+    {{!-- Includes the popular posts widget - partials/footer-section-posts.hbs --}}
+    {{#if @custom.enable_popular_posts_in_footer}}
+        {{> footer-section-posts}}
+    {{/if}}
+
+    {{!-- Includes tags section if enabled in settings - partials/footer-section-tags.hbs --}}
+    {{#if @custom.enable_tags_in_footer}}
+        {{> footer-section-tagcloud}}
+    {{/if}}
+
+    {{!-- Includes about section if enabled in settings - partials/footer-section-about.hbs --}}
+    {{#if @custom.enable_about_in_footer}}
+        {{> footer-section-about}}
+    {{/if}}
+</div>

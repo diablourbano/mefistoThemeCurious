@@ -1,0 +1,56 @@
+{{!-- Featured posts carousel --}}
+{{#get "posts" filter="featured:true" limit="5" include="authors,tags,tiers" as |featured_posts|}}
+    {{#foreach featured_posts visibility="all"}}
+        {{#if @first}}
+            <section class="featured-posts swiper">
+                <div class="swiper-wrapper">
+        {{/if}}
+                    <div class="swiper-slide">
+                        <article class="{{post_class}} post-card bg-dark bg-full">
+                            {{#if feature_image}}
+                                <img
+                                    class="post-card-image bg-full-image bg-fade-in"
+                                    srcset="{{img_url feature_image size="xs"}} 300w, {{img_url feature_image size="s" }} 600w, {{img_url feature_image size="m" }} 800w, {{img_url feature_image size="l" }} 1200w, {{img_url feature_image size="xl" }} 1600w, {{img_url feature_image size="xxl" }} 2000w"
+                                    sizes="(min-width: 1600px) 1600px, 100vw"
+                                    src="{{img_url feature_image size="xl"}}"
+                                    alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                                />
+                            {{/if}}
+                            <div class="post-card-inside">
+                                <div class="post-card-content inner">
+                                    <header class="post-card-header">
+                                        {{#if tags}}
+                                            <div class="post-card-tags">
+                                                {{#foreach tags}}
+                                                    <a href="{{url}}" class="button button-small button-solid-alt">{{name}}</a>
+                                                {{/foreach}}
+                                            </div>
+                                        {{/if}}
+                                        <h2 class="post-card-title h1"><a href="{{{url}}}">{{title}}</a></h2>
+                                        <div class="post-card-meta">
+                                            {{> "post-access-label"}}
+                                            {{t "By"}} <span class="post-card-author">{{authors}}</span> {{t "on"}} <time datetime="{{date format='YYYY-MM-DD'}}">{{date format="LL"}}</time>
+                                        </div>
+                                    </header>
+                                    <div class="post-card-read-more">
+                                        <a class="button button-outlined" href="{{url}}">{{t "Read More"}}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+        {{#if @last}}
+                </div>
+                {{#if featured_posts.[1]}}
+                    <div class="featured-pagination"></div>
+                    <button class="featured-button-prev button button-icon button-solid" aria-label="{{t "Previous"}}">{{> "icons/chevron-left"}}</button>
+                    <button class="featured-button-next button button-icon button-solid" aria-label="{{t "Next"}}">{{> "icons/chevron-right"}}</button>
+                {{/if}}
+            </section>
+        {{/if}}
+    {{/foreach}}
+{{/get}}
+
+{{#contentFor "featured-carousel-script"}}
+    <script src="{{asset "js/featured.js"}}"></script>
+{{/contentFor}}

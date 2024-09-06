@@ -1,0 +1,52 @@
+{{!< default}}
+{{!-- The tag above means - insert everything in this file into the {body} of the default.hbs template --}}
+
+{{!-- The main content area on the author page --}}
+<main id="main" class="content outer">
+    <div class="inner-wide">
+
+        {{!-- Everything inside the #author tags pulls data from the author --}}
+        {{#author}}
+
+        <header class="archive-header {{#if cover_image}}has-image bg-dark bg-full{{else}}no-image{{/if}}">
+            {{#if cover_image}}
+                <img
+                    class="archive-header-image bg-full-image bg-fade-in"
+                    srcset="{{img_url cover_image size="xs"}} 300w, {{img_url cover_image size="s" }} 600w, {{img_url cover_image size="m" }} 800w, {{img_url cover_image size="l" }} 1200w, {{img_url cover_image size="xl" }} 1600w, {{img_url cover_image size="xxl" }} 2000w"
+                    sizes="(min-width: 1600px) 1600px, 100vw"
+                    src="{{img_url cover_image size="xl"}}"
+                    alt=""
+                />
+            {{/if}}
+            <div class="archive-header-content inner">
+                <p class="archive-meta">{{plural ../pagination.total empty=(t "No posts by author") singular=(t "% post by author") plural=(t "% posts by author")}}</p>
+                <h1 class="archive-title">{{name}}</h1>
+                {{#if profile_image}}
+                    <p class="archive-author-avatar">
+                        <img srcset="{{img_url profile_image size="xxs"}}, {{img_url profile_image size="xs"}} 2x" src="{{img_url profile_image size="xs"}}" alt="{{name}}" class="avatar" />
+                    </p>
+                {{/if}}
+                {{#if bio}}
+                    <p class="archive-description">{{bio}}</p>
+                {{/if}}
+                <p class="archive-author-links">
+                    {{#if facebook}}
+                        <a class="button button-icon button-clear" href="{{facebook_url}}" aria-label="Facebook" target="_blank" rel="noopener">{{> "icons/facebook"}}</a>
+                    {{/if}}
+                    {{#if twitter}}
+                        <a class="button button-icon button-clear" href="{{twitter_url}}" aria-label="X (formerly Twitter)" target="_blank" rel="noopener">{{> "icons/x"}}</a>
+                    {{/if}}
+                    {{#if website}}
+                        <a class="button button-icon button-clear" href="{{website}}" aria-label="{{website}}" target="_blank" rel="noopener">{{> "icons/link"}}</a>
+                    {{/if}}
+                </p>
+            </div>
+        </header>
+
+        {{/author}}
+
+        {{!-- Includes the post loop - partials/loop.hbs --}}
+        {{> "loop"}}
+
+    </div>
+</main>

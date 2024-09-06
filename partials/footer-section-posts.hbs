@@ -1,0 +1,33 @@
+{{!-- Widget to display posts  --}}
+<section class="footer-section footer-section-posts">
+    <div class="footer-section-inside">
+        {{#if @custom.popular_posts_title}}
+            <h2 class="footer-section-title">{{@custom.popular_posts_title}}</h2>
+        {{/if}}
+        {{#get "posts" filter="tag:hash-popular" limit="6"}}
+            <ul class="post-list">
+                {{#foreach posts visibility="all"}}
+                    <li class="post-list-item">
+                        <a href="{{url}}" class="post-list-item-link">
+                            {{#if feature_image}}
+                                <div class="post-list-item-image">
+                                    <img src="{{img_url feature_image size="xxs"}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" />
+                                </div>
+                            {{/if}}
+                            <div class="post-list-item-content">
+                                <h3 class="post-list-item-title">{{title}}</h3>
+                                <div class="post-list-item-meta">
+                                    <time datetime="{{date format='YYYY-MM-DD'}}">{{date format="LL"}}</time>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                {{else}}
+                    <li>
+                        <p>{{t "No posts found."}}</p>
+                    </li>
+                {{/foreach}}
+            </ul>
+        {{/get}}
+    </div>
+</section>

@@ -1,0 +1,25 @@
+{{!-- Hero --}}
+<div class="hero bg-dark bg-full">
+    {{#if @site.cover_image}}
+        <img
+            class="hero-image bg-full-image bg-fade-in"
+            srcset="{{img_url @site.cover_image size="xs"}} 300w, {{img_url @site.cover_image size="s" }} 600w, {{img_url @site.cover_image size="m" }} 800w, {{img_url @site.cover_image size="l" }} 1200w, {{img_url @site.cover_image size="xl" }} 1600w, {{img_url @site.cover_image size="xxl" }} 2000w"
+            sizes="(min-width: 1600px) 1600px, 100vw"
+            src="{{img_url @site.cover_image size="xl"}}"
+            alt=""
+        />
+    {{/if}}
+    <div class="hero-inside inner">
+        <div class="hero-content">
+            <h2 class="hero-title h1">{{@site.title}}</h2>
+            <p class="hero-text">{{@site.description}}</p>
+            {{#if @site.members_enabled}}
+                {{#unless @member}}
+                    <p class="hero-subscribe">
+                        <a href="javascript:" data-portal="signup" class="button button-outlined">{{t "Subscribe"}}</a>
+                    </p>
+                {{/unless}}
+            {{/if}}
+        </div>
+    </div>
+</div>

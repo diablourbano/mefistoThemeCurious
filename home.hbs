@@ -1,0 +1,24 @@
+{{!< default}}
+{{!-- The tag above means - insert everything in this file into the {body} of the default.hbs template --}}
+
+{{!-- The content area on the homepage --}}
+<main id="main" class="content outer">
+    <div class="inner-wide">
+
+        {{!-- Based on custom settings, displays featured posts or title & description --}}
+        {{#match @custom.section_above_post_feed "Title & description"}}
+            {{!-- Includes the hero - partials/hero.hbs --}}
+            {{> "hero"}}
+        {{/match}}
+        {{#match @custom.section_above_post_feed "Featured posts carousel"}}
+            {{!-- Includes the featured posts carousel - partials/featured-carousel.hbs --}}
+            {{> "featured-carousel"}}
+            {{!-- Includes the post loop w/o featured posts - partials/loop-no-featured.hbs --}}
+            {{> "loop-no-featured"}}
+        {{else}}
+            {{!-- Includes the post loop - partials/loop.hbs --}}
+            {{> "loop"}}
+        {{/match}}
+
+    </div>
+</main>

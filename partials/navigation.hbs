@@ -1,0 +1,20 @@
+{{!-- Navigation menu items --}}
+{{#if isSecondary}}
+    <ul class="menu">
+        {{#foreach navigation}}
+            <li class="menu-item menu-item-{{slug}}"><a href="{{url absolute="true"}}">{{label}}</a></li>
+        {{/foreach}}
+    </ul>
+{{else}}
+    <ul class="menu">
+        {{#foreach navigation to="4"}}
+            <li class="menu-item{{#if current}} menu-item-current{{/if}}"><a href="{{url absolute="true"}}">{{label}}</a></li>
+        {{/foreach}}
+        {{#if navigation.[4]}}
+            <li class="menu-item menu-item-more"><a class="sidebar-toggle" href="javascript:">{{t "More"}} {{> "icons/plus"}}</a></li>
+        {{/if}}
+        {{#foreach navigation from="5"}}
+            <li class="menu-item{{#if current}} menu-item-current{{/if}} menu-item-sidebar"><a href="{{url absolute="true"}}">{{label}}</a></li>
+        {{/foreach}}
+    </ul>
+{{/if}}

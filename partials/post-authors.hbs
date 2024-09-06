@@ -1,0 +1,30 @@
+<div class="post-author-box">
+    <div class="post-author-box-title">{{t "Written by"}}</div>
+    {{#foreach authors}}
+        <div class="post-author">
+            {{#if profile_image}}
+                <div class="post-author-avatar">
+                    <img src="{{img_url profile_image size="xxs"}}" alt="{{name}}" class="avatar" />
+                </div>
+            {{/if}}
+            <div class="post-author-details">
+                <h2 class="post-author-name"><a href="{{url}}">{{name}}</a></h2>
+                {{#if bio}}
+                <p class="post-author-description">{{bio}}</p>
+                {{/if}}
+                <p class="post-author-links">
+                    {{#if facebook}}
+                        <a class="button button-icon button-clear" href="{{facebook_url}}" aria-label="Facebook" target="_blank" rel="noopener">{{> "icons/facebook"}}</a>
+                    {{/if}}
+                    {{#if twitter}}
+                        <a class="button button-icon button-clear" href="{{twitter_url}}" aria-label="X (formerly Twitter)" target="_blank" rel="noopener">{{> "icons/x"}}</a>
+                    {{/if}}
+                    {{#if website}}
+                        <a class="button button-icon button-clear" href="{{website}}" aria-label="{{website}}" target="_blank" rel="noopener">{{> "icons/link"}}</a>
+                    {{/if}}
+                </p>
+            </div>
+        </div>
+    {{/foreach}}
+</div>
+

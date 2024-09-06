@@ -1,0 +1,15 @@
+{{!-- Widget to display a tagcloud --}}
+<section class="footer-section footer-section-tags">
+    <div class="footer-section-inside">
+        {{#if @custom.tags_title}}
+            <h2 class="footer-section-title">{{@custom.tags_title}}</h2>
+        {{/if}}
+        <div class="tagcloud">
+            {{#get "tags" limit="15" include="count.posts" order="count.posts desc"}}
+                {{#foreach tags}}
+                    <a href="{{url}}" class="button button-small button-outlined">{{name}}</a>
+                {{/foreach}}
+            {{/get}}
+        </div>
+    </div>
+</section>

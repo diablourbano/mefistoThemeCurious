@@ -1,0 +1,15 @@
+<div class="post-sharing">
+    <span class="post-sharing-title">{{t "Share:"}}</span>
+    <a class="button button-icon button-clear" href="https://twitter.com/intent/tweet?text={{encode title}}&amp;url={{url absolute="true"}}" target="_blank" rel="noopener" aria-label="{{t "Post on X (formerly Twitter)"}}">
+        {{> "icons/x"}}
+    </a>
+    <a class="button button-icon button-clear" href="https://www.facebook.com/sharer.php?u={{url absolute="true"}}" target="_blank" rel="noopener" aria-label="{{t "Share on Facebook"}}">
+        {{> "icons/facebook"}}
+    </a>
+    <a class="button button-icon button-clear" href="https://www.linkedin.com/shareArticle?mini=true&url={{url absolute="true"}}&amp;title={{encode title}}&amp;source={{encode @site.title}}" target="_blank" rel="noopener" aria-label="{{t "Share on LinkedIn"}}">
+        {{> "icons/linkedin"}}
+    </a>
+    <a class="button button-icon button-clear" target="_blank" rel="noopener" href="mailto:?subject={{encode title}}&amp;body={{url absolute="true"}}" aria-label="{{t "Share via email"}}">
+        {{> "icons/envelope"}}
+    </a>
+</div>

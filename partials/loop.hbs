@@ -1,0 +1,8 @@
+{{!-- The post feed --}}
+<div class="post-feed">
+    {{#foreach posts visibility="all"}}
+        {{> "post-card"}}
+    {{/foreach}}
+</div>
+{{!-- Previous/next page links --}}
+{{pagination}}

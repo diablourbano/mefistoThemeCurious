@@ -1,0 +1,10 @@
+{{!-- The post feed without featured posts --}}
+{{#get "posts" include="authors,tags,tiers" limit=@config.posts_per_page filter="featured:false" page=pagination.page}}
+    <div class="post-feed">
+        {{#foreach posts visibility="all"}}
+            {{> "post-card"}}
+        {{/foreach}}
+    </div>
+    {{!-- Previous/next page links --}}
+    {{pagination}}
+{{/get}}

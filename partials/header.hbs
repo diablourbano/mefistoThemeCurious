@@ -1,0 +1,46 @@
+<header class="navbar outer">
+    <div class="inner-wide">
+        <div class="navbar-inside">
+            <div class="navbar-branding">
+                {{#if @site.logo}}
+                    <a class="navbar-logo" href="{{@site.url}}"><img src="{{img_url @site.logo size="xs"}}" alt="{{@site.title}}" /></a>
+                {{/if}}
+                {{#is "index"}}
+                    <h1 class="navbar-title{{#if @site.logo}} screen-reader-text{{/if}}"><a href="{{@site.url}}">{{@site.title}}</a></h1>
+                {{else}}
+                    <p class="navbar-title{{#if @site.logo}} screen-reader-text{{/if}}"><a href="{{@site.url}}">{{@site.title}}</a></p>
+                {{/is}}
+            </div>
+            <nav class="navbar-menu" aria-label="{{t "Main Navigation"}}">
+                {{!-- Includes the navigation menu - partials/navigation.hbs --}}
+                {{navigation}}
+                <ul class="actions">
+                    {{!-- If members enabled, shows member related menu items --}}
+                    {{#if @site.members_enabled}}
+                        {{!-- Not logged in: shows subscribe and sign in links --}}
+                        {{#unless @member}}
+                            <li class="action-item action-item-signup">
+                                <a href="javascript:" data-portal="signup">{{t "Subscribe"}}</a>
+                            </li>
+                            <li class="action-item action-item-signin">
+                                <a href="javascript:" data-portal="signin">{{t "Sign in"}}</a>
+                            </li>
+                        {{!-- Logged in: shows account link --}}
+                        {{else}}
+                            <li class="action-item action-item-account">
+                                <a href="javascript:" data-portal="account">{{t "Account"}}</a>
+                            </li>
+                        {{/unless}}
+                    {{/if}}
+                    <li class="action-item action-item-search">
+                        <button class="button button-icon button-clear" data-ghost-search aria-label="{{t "Search"}}">{{> "icons/search"}}</button>
+                    </li>
+                    <li class="action-item action-item-sidebar">
+                        <button class="sidebar-toggle button button-icon button-clear" aria-label="{{t "Show sidebar"}}">{{> "icons/menu"}}</button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+ 

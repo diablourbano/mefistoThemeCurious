@@ -1,0 +1,37 @@
+{{!-- The sidebar of the theme --}}
+<div class="sidebar-overlay"></div>
+<div class="sidebar">
+    <div class="sidebar-scrollable">
+        <div class="sidebar-inside">
+            <div class="sidebar-top">
+                <button class="sidebar-toggle button button-icon button-clear" aria-label="{{t "Close Sidebar"}}">{{> "icons/close"}}</button>
+            </div>
+            <nav class="sidebar-menu">
+                <h2 class="sidebar-menu-title">{{t "Explore {site_title}" site_title=@site.title}}</h2>
+                {{!-- Includes the navigation menu - partials/navigation.hbs --}}
+                {{navigation}}
+                {{!-- If members enabled, shows member related menu items --}}
+                {{#if @site.members_enabled}}
+                    <ul class="actions">
+                        {{!-- Not logged in: shows subscribe and sign in links --}}
+                        {{#unless @member}}
+                            <li class="action-item action-item-signup">
+                                <a href="javascript:" data-portal="signup">{{t "Subscribe"}}</a>
+                            </li>
+                            <li class="action-item action-item-signin">
+                                <a href="javascript:" data-portal="signin">{{t "Sign in"}}</a>
+                            </li>
+                        {{!-- Logged in: shows account link --}}
+                        {{else}}
+                            <li class="action-item action-item-account">
+                                <a href="javascript:" data-portal="account">{{t "Account"}}</a>
+                            </li>
+                        {{/unless}}
+                    </ul>
+                {{/if}}
+                {{!-- Includes the social links - partials/social-links.hbs --}}
+                {{> social-links}}
+            </nav>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+{{!-- Widget to display the recent posts list --}}
+<section class="footer-section footer-section-authors">
+    <div class="footer-section-inside">
+        {{#if @custom.authors_title}}
+            <h2 class="footer-section-title">{{@custom.authors_title}}</h2>
+        {{/if}}
+        {{#get "authors" limit="all" include="count.posts" order="count.posts desc"}}
+            <ul class="author-list">
+                {{#foreach authors}}
+                    <li class="author-list-item">
+                        <a href="{{url}}" class="author-list-item-link">
+                            {{#if profile_image}}
+                                <div class="author-list-item-avatar">
+                                    <img src="{{img_url profile_image size="xxs"}}" alt="{{name}}" class="avatar" />
+                                </div>
+                            {{/if}}
+                            <div class="author-list-item-details">
+                                <h2 class="author-list-item-name">{{name}}</h2>
+                                <div class="author-list-item-count">{{plural count.posts empty=(t "No posts") singular=(t "% post") plural=(t "% posts")}}</div>
+                            </div>
+                        </a>
+                    </li>
+                {{/foreach}}
+            </ul>
+        {{/get}}
+    </div>
+</section>

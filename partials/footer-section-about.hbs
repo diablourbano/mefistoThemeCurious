@@ -1,0 +1,11 @@
+{{!-- Displays the about info --}}
+<section class="footer-section footer-section-text">
+    <div class="footer-section-inside">
+        {{#if @custom.about_title}}
+            <h2 class="footer-section-title">{{@custom.about_title}}</h2>
+        {{/if}}
+        {{#if @custom.about_text}}
+            <p>{{@custom.about_text}}</p>
+        {{/if}}
+    </div>
+</section>
