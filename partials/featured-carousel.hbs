@@ -28,13 +28,9 @@
                                         {{/if}}
                                         <h2 class="post-card-title h1"><a href="{{{url}}}">{{title}}</a></h2>
                                         <div class="post-card-meta">
-                                            {{> "post-access-label"}}
-                                            {{t "By"}} <span class="post-card-author">{{authors}}</span> {{t "on"}} <time datetime="{{date format='YYYY-MM-DD'}}">{{date format="LL"}}</time>
+                                            <time datetime="{{date format='YYYY-MM-DD'}}">{{date format="LL"}}</time>
                                         </div>
                                     </header>
-                                    <div class="post-card-read-more">
-                                        <a class="button button-outlined" href="{{url}}">{{t "Read More"}}</a>
-                                    </div>
                                 </div>
                             </div>
                         </article>

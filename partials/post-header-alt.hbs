@@ -32,7 +32,7 @@
         {{/if}}
         <h1 class="post-title">{{title}}</h1>
         <div class="post-meta">
-            {{t "By"}} {{authors}} {{t "on"}} <time datetime="{{date format='YYYY-MM-DD'}}">{{date format="LL"}}</time>
+            <time datetime="{{date format='YYYY-MM-DD'}}">{{date format="LL"}}</time>
         </div>
         <div class="post-reading-time">{{reading_time minute=(t "1 min read") minutes=(t "% min read")}}</div>
     </div>

@@ -21,8 +21,6 @@
                 <footer class="post-footer inner">
                     {{!-- Post sharing buttons - partials/post-share.hbs --}}
                     {{> "post-share"}}
-                    {{!-- Post authors - partials/post-authors.hbs --}}
-                    {{> "post-authors"}}
                 </footer>
                 {{!-- If Disqus enabled, includes the Disqus comments - partials/comments-disqus.hbs --}}
                 {{#if @custom.enable_disqus}}
@@ -69,8 +67,7 @@
                                 </div>
                                 <h2 class="post-card-title">{{title}}</h2>
                                 <div class="post-card-meta">
-                                    {{> "post-access-label"}}
-                                    {{t "By"}} <span class="post-card-author">{{authors autolink="false"}}</span> {{t "on"}} <time datetime="{{date format='YYYY-MM-DD'}}">{{date format="LL"}}</time>
+                                    <time datetime="{{date format='YYYY-MM-DD'}}">{{date format="LL"}}</time>
                                 </div>
                             </header>
                         </div>
@@ -96,8 +93,7 @@
                                 </div>
                                 <h2 class="post-card-title">{{title}}</h2>
                                 <div class="post-card-meta">
-                                    {{> "post-access-label"}}
-                                    {{t "By"}} <span class="post-card-author">{{authors autolink="false"}}</span> {{t "on"}} <time datetime="{{date format='YYYY-MM-DD'}}">{{date format="LL"}}</time>
+                                    <time datetime="{{date format='YYYY-MM-DD'}}">{{date format="LL"}}</time>
                                 </div>
                             </header>
                         </div>

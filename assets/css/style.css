@@ -272,7 +272,7 @@ pre {
 
 /* Blockquotes */
 blockquote {
-  border-left: 5px solid var(--color-border);
+  border-left: 5px solid var(--ghost-accent-color);
   color: var(--color-text-highlight);
   font-size: 1.25rem;
   line-height: 1.4;
@@ -512,6 +512,25 @@ figcaption {
 .button-outlined:hover,
 .button-outlined:focus,
 .button-outlined:active {
+  background-color: var(--ghost-accent-color);
+  border-color: var(--ghost-accent-color);
+  color: var(--color-text-on-accent);
+}
+
+.button-outlined-on-hover {
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--color-text-highlight);
+}
+
+.bg-dark .button-outlined-on-hover {
+  border-color: transparent;
+  color: var(--color-text-highlight-inverse);
+}
+
+.button-outlined-on-hover:hover,
+.button-outlined-on-hover:focus,
+.button-outlined-on-hover:active {
   background-color: var(--ghost-accent-color);
   border-color: var(--ghost-accent-color);
   color: var(--color-text-on-accent);
