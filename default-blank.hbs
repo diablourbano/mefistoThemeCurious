@@ -8,8 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         {{!-- Styles --}}
         {{> custom-fonts}}
-        <link rel="preload" as="style" href="{{asset "css/style.css"}}">
-        <link rel="stylesheet" type="text/css" href="{{asset "css/style.css"}}">
+        <link rel="stylesheet" type="text/css" href="{{asset "css/style.min.css"}}">
         {{{block "blank-background-image-style"}}}
         {{!-- Outputs SEO meta+structured data and other important settings --}}
         {{ghost_head}}
@@ -18,6 +17,9 @@
 
         {{!-- Inserts the main content --}}
         {{{body}}}
+
+        {{!-- Outputs important scripts and data --}}
+        {{ghost_foot}}
 
     </body>
 </html>

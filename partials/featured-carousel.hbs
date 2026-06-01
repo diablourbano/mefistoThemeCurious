@@ -9,28 +9,35 @@
                         <article class="{{post_class}} post-card bg-dark bg-full">
                             {{#if feature_image}}
                                 <img
-                                    class="post-card-image bg-full-image bg-fade-in"
+                                    class="post-card-image bg-full-image"
                                     srcset="{{img_url feature_image size="xs"}} 300w, {{img_url feature_image size="s" }} 600w, {{img_url feature_image size="m" }} 800w, {{img_url feature_image size="l" }} 1200w, {{img_url feature_image size="xl" }} 1600w, {{img_url feature_image size="xxl" }} 2000w"
                                     sizes="(min-width: 1600px) 1600px, 100vw"
                                     src="{{img_url feature_image size="xl"}}"
-                                    alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                                    alt="{{#if feature_image_alt}}{{feature_image_alt}}{{/if}}"
+                                    {{#if @first}}
+                                        fetchpriority="high"
+                                    {{else}}
+                                        loading="lazy"
+                                    {{/if}}
                                 />
                             {{/if}}
                             <div class="post-card-inside">
-                                <div class="post-card-content inner">
-                                    <header class="post-card-header">
-                                        {{#if tags}}
-                                            <div class="post-card-tags">
-                                                {{#foreach tags}}
-                                                    <a href="{{url}}" class="button button-small button-solid-alt">{{name}}</a>
-                                                {{/foreach}}
-                                            </div>
-                                        {{/if}}
-                                        <h2 class="post-card-title h1"><a href="{{{url}}}">{{title}}</a></h2>
-                                        <div class="post-card-meta">
-                                            <time datetime="{{date format='YYYY-MM-DD'}}">{{date format="LL"}}</time>
-                                        </div>
-                                    </header>
+                                <header class="post-card-header inner">
+                                    {{#foreach tags}}
+                                        {{#if @first}}<div class="post-card-tags">{{/if}}
+                                            <a href="{{url}}" class="button button-small button-solid-alt">{{name}}</a>
+                                        {{#if @last}}</div>{{/if}}
+                                    {{/foreach}}
+                                    <h2 class="post-card-title h1"><a href="{{url}}">{{title}}</a></h2>
+                                    <div class="post-card-meta">
+                                        {{> "post-access-label"}}
+                                    </div>
+                                </header>
+                                <div class="post-card-read-more inner">
+                                    <a class="button button-outlined" href="{{url}}">
+                                        {{t "Read more"}}
+                                        <span class="screen-reader-text">: {{title}}</span>
+                                    </a>
                                 </div>
                             </div>
                         </article>
@@ -39,8 +46,20 @@
                 </div>
                 {{#if featured_posts.[1]}}
                     <div class="featured-pagination"></div>
-                    <button class="featured-button-prev button button-icon button-solid" aria-label="{{t "Previous"}}">{{> "icons/chevron-left"}}</button>
-                    <button class="featured-button-next button button-icon button-solid" aria-label="{{t "Next"}}">{{> "icons/chevron-right"}}</button>
+                    <button
+                        type="button"
+                        class="featured-button-prev button button-icon button-solid"
+                        aria-label="{{t "Previous"}}"
+                    >
+                        {{> "icons/chevron-left"}}
+                    </button>
+                    <button
+                        type="button"
+                        class="featured-button-next button button-icon button-solid"
+                        aria-label="{{t "Next"}}"
+                    >
+                        {{> "icons/chevron-right"}}
+                    </button>
                 {{/if}}
             </section>
         {{/if}}
@@ -48,5 +67,5 @@
 {{/get}}
 
 {{#contentFor "featured-carousel-script"}}
-    <script src="{{asset "js/featured.js"}}"></script>
+    <script src="{{asset "js/featured.min.js"}}"></script>
 {{/contentFor}}

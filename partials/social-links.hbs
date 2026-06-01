@@ -1,15 +1,31 @@
 {{!-- Social links list --}}
 <div class="social-links">
     {{#if @site.twitter}}
-        <a href="{{twitter_url}}" class="button button-icon button-clear" target="_blank" rel="noopener" aria-label="X (formerly Twitter)">{{> "icons/x"}}</a>
+        <a href="{{social_url type="twitter"}}" class="button button-icon button-clear" aria-label="X (formerly Twitter)" target="_blank" rel="noopener">{{> "icons/x"}}</a>
     {{/if}}
     {{#if @site.facebook}}
-        <a href="{{facebook_url}}" class="button button-icon button-clear" target="_blank" rel="noopener" aria-label="Facebook">{{> "icons/facebook"}}</a>
+        <a href="{{social_url type="facebook"}}" class="button button-icon button-clear" aria-label="Facebook" target="_blank" rel="noopener">{{> "icons/facebook"}}</a>
     {{/if}}
-
-    <a href="https://instagram.com/diablourbano" class="button button-icon button-clear" target="_blank" rel="noopener" aria-label="Instagram">{{> "icons/instagram"}}</a>
-
-    <a href="https://www.linkedin.com/in/jaime-davila/" class="button button-icon button-clear" target="_blank" rel="noopener" aria-label="LinkedIn">{{> "icons/linkedin"}}</a>
-
-    <a href="https://github.com/diablourbano" class="button button-icon button-clear" target="_blank" rel="noopener" aria-label="GitHub">{{> "icons/github"}}</a>
+    {{#if @site.linkedin}}
+        <a href="{{social_url type="linkedin"}}" class="button button-icon button-clear" aria-label="LinkedIn" target="_blank" rel="noopener">{{> "icons/linkedin"}}</a>
+    {{/if}}
+    {{#if @site.bluesky}}
+        <a href="{{social_url type="bluesky"}}" class="button button-icon button-clear" aria-label="Bluesky" target="_blank" rel="noopener">{{> "icons/bluesky"}}</a>
+    {{/if}}
+    {{#if @site.threads}}
+        <a href="{{social_url type="threads"}}" class="button button-icon button-clear" aria-label="Threads" target="_blank" rel="noopener">{{> "icons/threads"}}</a>
+    {{/if}}
+    {{#if @site.mastodon}}
+        <a href="{{social_url type="mastodon"}}" class="button button-icon button-clear" aria-label="Mastodon" target="_blank" rel="noopener">{{> "icons/mastodon"}}</a>
+    {{/if}}
+    {{#if @site.tiktok}}
+        <a href="{{social_url type="tiktok"}}" class="button button-icon button-clear" aria-label="TikTok" target="_blank" rel="noopener">{{> "icons/tiktok"}}</a>
+    {{/if}}
+    {{#if @site.youtube}}
+        <a href="{{social_url type="youtube"}}" class="button button-icon button-clear" aria-label="YouTube" target="_blank" rel="noopener">{{> "icons/youtube"}}</a>
+    {{/if}}
+    {{#if @site.instagram}}
+        <a href="{{social_url type="instagram"}}" class="button button-icon button-clear" aria-label="Instagram" target="_blank" rel="noopener">{{> "icons/instagram"}}</a>
+    {{/if}}
+    <a href="https://github.com/diablourbano" class="button button-icon button-clear" ariel-label="Github" target="_blank" rel="noopener">{{> "icons/github"}}</a>
 </div>

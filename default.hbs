@@ -8,8 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         {{!-- Styles --}}
         {{> custom-fonts}}
-        <link rel="preload" as="style" href="{{asset "css/style.css"}}">
-        <link rel="stylesheet" type="text/css" href="{{asset "css/style.css"}}">
+        <link rel="stylesheet" type="text/css" href="{{asset "css/style.min.css"}}">
         {{!-- Outputs SEO meta+structured data and other important settings --}}
         {{ghost_head}}
     </head>
@@ -27,9 +26,9 @@
         </div>
 
         {{!-- Scripts --}}
-        <script src="{{asset "js/index.js"}}"></script>
+        <script src="{{asset "js/index.min.js"}}"></script>
         {{#is "post, page"}}
-            <script src="{{asset "js/post.js"}}"></script>
+            <script src="{{asset "js/post.min.js"}}"></script>
         {{/is}}
         {{{block "featured-carousel-script"}}}
 

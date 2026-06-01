@@ -20,7 +20,7 @@
             <div class="footer-bottom-content">
                 {{!-- If enabled, includes the secondary navigation menu - partials/navigation.hbs --}}
                 {{#if @site.secondary_navigation}}
-                    <nav class="footer-nav">
+                    <nav class="footer-nav" aria-label="{{t "Footer Navigation"}}">
                         {{navigation type="secondary"}}
                     </nav>
                 {{/if}}

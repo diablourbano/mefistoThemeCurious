@@ -30,11 +30,32 @@
                     <p class="archive-description">{{bio}}</p>
                 {{/if}}
                 <p class="archive-author-links">
-                    {{#if facebook}}
-                        <a class="button button-icon button-clear" href="{{facebook_url}}" aria-label="Facebook" target="_blank" rel="noopener">{{> "icons/facebook"}}</a>
-                    {{/if}}
                     {{#if twitter}}
-                        <a class="button button-icon button-clear" href="{{twitter_url}}" aria-label="X (formerly Twitter)" target="_blank" rel="noopener">{{> "icons/x"}}</a>
+                        <a class="button button-icon button-clear" href="{{social_url type="twitter"}}" aria-label="X (formerly Twitter)" target="_blank" rel="noopener">{{> "icons/x"}}</a>
+                    {{/if}}
+                    {{#if facebook}}
+                        <a class="button button-icon button-clear" href="{{social_url type="facebook"}}" aria-label="Facebook" target="_blank" rel="noopener">{{> "icons/facebook"}}</a>
+                    {{/if}}
+                    {{#if linkedin}}
+                        <a class="button button-icon button-clear" href="{{social_url type="linkedin"}}" aria-label="LinkedIn" target="_blank" rel="noopener">{{> "icons/linkedin"}}</a>
+                    {{/if}}
+                    {{#if bluesky}}
+                        <a class="button button-icon button-clear" href="{{social_url type="bluesky"}}" aria-label="Bluesky" target="_blank" rel="noopener">{{> "icons/bluesky"}}</a>
+                    {{/if}}
+                    {{#if threads}}
+                        <a class="button button-icon button-clear" href="{{social_url type="threads"}}" aria-label="Threads" target="_blank" rel="noopener">{{> "icons/threads"}}</a>
+                    {{/if}}
+                    {{#if mastodon}}
+                        <a class="button button-icon button-clear" href="{{social_url type="mastodon"}}" aria-label="Mastodon" target="_blank" rel="noopener">{{> "icons/mastodon"}}</a>
+                    {{/if}}
+                    {{#if tiktok}}
+                        <a class="button button-icon button-clear" href="{{social_url type="tiktok"}}" aria-label="TikTok" target="_blank" rel="noopener">{{> "icons/tiktok"}}</a>
+                    {{/if}}
+                    {{#if youtube}}
+                        <a class="button button-icon button-clear" href="{{social_url type="youtube"}}" aria-label="YouTube" target="_blank" rel="noopener">{{> "icons/youtube"}}</a>
+                    {{/if}}
+                    {{#if instagram}}
+                        <a class="button button-icon button-clear" href="{{social_url type="instagram"}}" aria-label="Instagram" target="_blank" rel="noopener">{{> "icons/instagram"}}</a>
                     {{/if}}
                     {{#if website}}
                         <a class="button button-icon button-clear" href="{{website}}" aria-label="{{website}}" target="_blank" rel="noopener">{{> "icons/link"}}</a>

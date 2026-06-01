@@ -33,9 +33,9 @@
         {{/if}}
     {{/has}}
     {{#if @member}}
-        <a class="button button-solid" href="javascript:" data-portal="account/plans">{{t "Upgrade your account"}}</a>
+        <button type="button" class="button button-solid" data-portal="account/plans">{{t "Upgrade your account"}}</button>
     {{else}}
-        <a class="button button-solid" href="javascript:" data-portal="signup">{{t "Subscribe now"}}</a>
-        <p class="subscribe-box-note">{{t "Already have an account?"}} <a href="javascript:" data-portal="signin">{{t "Sign in"}}</a></p>
+        <button type="button" class="button button-solid" data-portal="signup">{{t "Subscribe now"}}</button>
+        <p class="subscribe-box-note">{{t "Already have an account?"}} <a href="#/portal/signin" data-portal="signin">{{t "Sign in"}}</a></p>
     {{/if}}
 </aside>

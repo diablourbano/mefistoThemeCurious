@@ -2,9 +2,9 @@
   "name": "curious",
   "description": "A perfect Ghost theme for an online magazine, journal or personal blog.",
   "demo": "https://curious.justgoodthemes.com/",
-  "version": "3.2.0",
+  "version": "4.0.0",
   "engines": {
-    "ghost": ">=5.0.0"
+    "ghost": ">=6.0.0"
   },
   "screenshots": {
     "desktop": "assets/screenshot-desktop.jpg",
@@ -67,7 +67,8 @@
       },
       "authors_title": {
         "type": "text",
-        "default": "Contributors"
+        "default": "Contributors",
+        "visibility" : "enable_authors_in_footer:false"
       },
       "enable_popular_posts_in_footer": {
         "type": "boolean",
@@ -75,7 +76,8 @@
       },
       "popular_posts_title": {
         "type": "text",
-        "default": "Popular"
+        "default": "Popular",
+        "visibility" : "enable_popular_posts_in_footer:false"
       },
       "enable_tags_in_footer": {
         "type": "boolean",
@@ -83,7 +85,8 @@
       },
       "tags_title": {
         "type": "text",
-        "default": "Explore"
+        "default": "Explore",
+        "visibility" : "enable_tags_in_footer:false"
       },
       "enable_about_in_footer": {
         "type": "boolean",
@@ -91,27 +94,19 @@
       },
       "about_title": {
         "type": "text",
-        "default": "About Curious"
+        "default": "About Curious",
+        "visibility" : "enable_about_in_footer:false"
       },
       "about_text": {
         "type": "text",
-        "default": "Curious is a well-structured, content-focused and easy to set up Ghost theme with a bold design. Perfect for an online magazine, journal or even a personal blog. Explore it yourself."
+        "default": "Curious is a well-structured, content-focused and easy to set up Ghost theme with a bold design. Perfect for an online magazine, journal or even a personal blog. Explore it yourself.",
+        "visibility" : "enable_about_in_footer:false"
       },
       "section_above_post_feed": {
         "type": "select",
         "options": ["None", "Featured posts carousel", "Title & description"],
         "default": "Title & description",
         "group": "homepage"
-      },
-      "enable_disqus": {
-        "type": "boolean",
-        "default": false,
-        "group": "post"
-      },
-      "disqus_shortname": {
-        "type": "text",
-        "default": "",
-        "group": "post"
       }
     }
   }

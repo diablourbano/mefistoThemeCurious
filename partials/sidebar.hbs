@@ -1,13 +1,19 @@
 {{!-- The sidebar of the theme --}}
-<div class="sidebar-overlay"></div>
-<div class="sidebar">
-    <div class="sidebar-scrollable">
+<div class="sidebar-overlay" aria-hidden="true"></div>
+<div id="sidebar" class="sidebar" aria-hidden="true">
+    <div class="sidebar-scroll">
         <div class="sidebar-inside">
             <div class="sidebar-top">
-                <button class="sidebar-toggle button button-icon button-clear" aria-label="{{t "Close Sidebar"}}">{{> "icons/close"}}</button>
+                <button
+                    type="button"
+                    class="sidebar-close button button-icon button-clear"
+                    aria-label="{{t "Close Sidebar"}}"
+                >
+                    {{> "icons/close"}}
+                </button>
             </div>
-            <nav class="sidebar-menu">
-                <h2 class="sidebar-menu-title">{{t "Explore {site_title}" site_title=@site.title}}</h2>
+            <nav class="sidebar-menu" aria-labelledby="sidebar-menu-title">
+                <h2 id="sidebar-menu-title" class="sidebar-menu-title">{{t "Explore {site_title}" site_title=@site.title}}</h2>
                 {{!-- Includes the navigation menu - partials/navigation.hbs --}}
                 {{navigation}}
                 {{!-- If members enabled, shows member related menu items --}}
@@ -16,15 +22,33 @@
                         {{!-- Not logged in: shows subscribe and sign in links --}}
                         {{#unless @member}}
                             <li class="action-item action-item-signup">
-                                <a href="javascript:" data-portal="signup">{{t "Subscribe"}}</a>
+                                <button
+                                    type="button"
+                                    class="button button-clear"
+                                    data-portal="signup"
+                                >
+                                    {{t "Subscribe"}}
+                                </button>
                             </li>
                             <li class="action-item action-item-signin">
-                                <a href="javascript:" data-portal="signin">{{t "Sign in"}}</a>
+                                <button
+                                    type="button"
+                                    class="button button-clear"
+                                    data-portal="signin"
+                                >
+                                    {{t "Sign in"}}
+                                </button>
                             </li>
                         {{!-- Logged in: shows account link --}}
                         {{else}}
                             <li class="action-item action-item-account">
-                                <a href="javascript:" data-portal="account">{{t "Account"}}</a>
+                                <button
+                                    type="button"
+                                    class="button button-clear"
+                                    data-portal="account"
+                                >
+                                    {{t "Account"}}
+                                </button>
                             </li>
                         {{/unless}}
                     </ul>
